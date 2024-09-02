@@ -1,0 +1,279 @@
+
+/* General Styles */
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #222;
+    padding: 20px;
+    border-bottom: 2px solid #555;
+}
+
+header .hcontainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align items to the ends */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Header Title Styles */
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+/* Navigation Styles */
+nav {
+    flex-grow: 1; /* Allow nav to grow and align to the right */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: flex-end; /* Align navigation items to the right in desktop view */
+}
+
+/* Navigation Link Styles */
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li.active a {
+    color: #F2CE7B;
+}
+
+/* Timeline Styles */
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px; /* Adjust padding to account for fixed header */
+}
+
+/* Timeline Line Styles */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 10px; /* Increased width for better visibility */
+    height: 100%;
+    background-color: #646262;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+
+/* Timeline Item Styles */
+.timeline-item {
+    position: relative;
+    width: calc(100% - 100px); /* Adjust width to leave space for the line */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #333;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    color: #fff;
+    margin-bottom: 20px;
+    z-index: 1;
+    animation: slide-in 1s ease-in-out;
+}
+
+/* Styles for Left and Right Timeline Items */
+.timeline-item.left {
+    margin-left: 0; /* No margin on the left for left items */
+    margin-right: 100px; /* Margin on the right to make space for the timeline line */
+    width: calc(50% - 50px); /* Adjust width for left items */
+}
+
+.timeline-item.right {
+    margin-left: 100px; /* Margin on the left to make space for the timeline line */
+    margin-right: 0; /* No margin on the right for right items */
+    width: calc(50% - 50px); /* Adjust width for right items */
+}
+
+.timeline-item.left::before,
+.timeline-item.right::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #555;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Left timeline item dot position */
+.timeline-item.left::before {
+    left: 100%;
+}
+
+/* Right timeline item dot position */
+.timeline-item.right::before {
+    left: -10px;
+}
+
+/* Additional Styles */
+.timeline-item h2,
+.timeline-item h3 {
+    margin-top: 0;
+}
+
+.timeline-item p {
+    margin-bottom: 0;
+}
+
+.timeline-item .skills {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.timeline-item .skills span {
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+/* Hourglass Icon Styles */
+/* Hourglass Icon Styles */
+.timeline-end-icon {
+    position: absolute;
+    bottom: -1px; /* Adjusted to ensure visibility */
+    left: 50%;
+    background-color: #F2CE7B;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure it's on top of other elements */
+    width: 50px;
+    height: 50px;
+    display: flex; /* Center icon if it has an image */
+    align-items: center; /* Center image vertically */
+    justify-content: center; /* Center image horizontally */
+    border-radius: 50%; /* Ensure it’s a perfect circle */
+    overflow: hidden; /* Hide overflow of image */
+}
+
+/* Icon Image Styles */
+.timeline-end-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the image fits within the container */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .timeline-end-icon {
+        width: 35px;
+        height: 35px;
+        bottom: -1px; /* Adjusted for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-end-icon {
+        width: 30px;
+        height: 30px;
+        bottom: -1px; /* Adjusted for mobile */
+    }
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 15px;
+    }
+
+    header h1 a {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        text-align: center; /* Center align nav items */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center; /* Center navigation items */
+        gap: 10px;
+        margin-left: 0; /* Center navigation in mobile view */
+    }
+
+    .timeline {
+        padding: 10px;
+        margin-top: 100px; /* To avoid overlap with fixed header */
+    }
+
+    .timeline-line {
+        width: 4px; /* Adjusted width for mobile */
+    }
+
+    .timeline-item {
+        width: calc(100% - 40px); /* Adjust width to leave space for the line */
+        padding: 15px;
+        margin: 10px 0; /* Adjusted margin */
+        margin-left: 40px; /* Adjust for mobile */
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        margin: 0;
+    }
+
+    .timeline-end-icon {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    header h1 a {
+        font-size: 1.2rem;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .timeline-item {
+        padding: 10px;
+        margin-left: 20px; /* Adjust for mobile */
+    }
+
+    .timeline-end-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
